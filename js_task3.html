@@ -25,7 +25,7 @@
 
 </ul>
 
-<button id="sort-btn" onclick="btnHandle();">排序</button>
+<button id="sort-btn">排序</button>
 
 <script type="text/javascript">
 
@@ -89,7 +89,6 @@
 
     function init() {
         // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-        //document.getElementById("sort-btn").addEventListener('click', btnHandle(),false);
         var button = document.getElementById("sort-btn");
         button.onclick = btnHandle;
     }
