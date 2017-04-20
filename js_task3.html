@@ -28,7 +28,7 @@
 <button id="sort-btn" onclick="btnHandle();">排序</button>
 
 <script type="text/javascript">
-    //init();
+
     /**
      * getData方法
      * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
@@ -74,9 +74,10 @@
      * 格式见ul中的注释的部分
      */
     function render(data) {
+        var rank = ['一','二','三','四','五','六','七'];
         var ul = document.getElementById("resort");
         for(var i=0;i<data.length;i++){
-            ul.innerHTML +="<li>"+data[i][0]+"空气质量: "+"<b>"+data[i][1]+"</b>"+"</li>"
+            ul.innerHTML +="<li>第"+rank[i]+"名: "+data[i][0]+"空气质量: "+"<b>"+data[i][1]+"</b>"+"</li>"
         }
     }
 
@@ -86,11 +87,13 @@
         render(aqiData);
     }
 
-//    function init() {
-//        // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
-//        document.getElementById("sort-btn").addEventListener('click', btnHandle(),false);
-//    }
-
+    function init() {
+        // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+        //document.getElementById("sort-btn").addEventListener('click', btnHandle(),false);
+        var button = document.getElementById("sort-btn");
+        button.onclick = btnHandle;
+    }
+    init();
 
 </script>
 </body>
