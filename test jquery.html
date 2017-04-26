@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个事件触发</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
+    <style>
+        table{  border:1px solid #000;border-collapse: collapse;width:500px;  }
+        td{border:1px solid #000;width:100%; height:30px;}
+        .red {  background-color: red!important;  }
+        .yellow {  background-color:  yellow;  }
+        .white {  background-color: #fff  }
+    </style>
+</head>
+<body>
+<div id="div">
+    <table>
+        <tbody>
+        <tr> <td>11</td> </tr>
+        <tr> <td>21</td> </tr>
+        <tr> <td>31</td> </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $('#div').on("mouseenter", "table tr" ,function(){
+        $(this).removeClass("white").addClass("yellow");
+    }).on("mouseleave", "table tr",function(){
+        $(this).removeClass("yellow").addClass("white");
+    }).on("click", "table tr", function(){
+        $(this).addClass("red").siblings().removeClass("red");
+    });
+</script>
+</body>
+</html>
